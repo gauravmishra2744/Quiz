@@ -1,0 +1,6 @@
+@echo off
+echo Installing dependencies...
+npm install --silent
+
+echo Starting ClassQuiz...
+npm run dev
