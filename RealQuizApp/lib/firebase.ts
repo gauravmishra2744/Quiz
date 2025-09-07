@@ -1,5 +1,5 @@
-import { initializeApp } from 'firebase/app';
-import { getDatabase } from 'firebase/database';
+import { initializeApp, FirebaseApp } from 'firebase/app';
+import { getDatabase, Database } from 'firebase/database';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || 'demo-key',
@@ -10,17 +10,13 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || '1:123456789:web:demo',
 };
 
-let app;
-let database;
+// Initialize Firebase only on client side
+let app: FirebaseApp | null = null;
+let database: Database | null = null;
 
 if (typeof window !== 'undefined') {
-  // Only initialize on client side
   app = initializeApp(firebaseConfig);
   database = getDatabase(app);
-} else {
-  // Server-side fallback
-  app = null;
-  database = null;
 }
 
 export { database };

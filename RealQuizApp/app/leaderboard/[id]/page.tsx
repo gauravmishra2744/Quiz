@@ -27,7 +27,7 @@ export default function LeaderboardPage() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (!quizId) return
+    if (!quizId || !database) return
 
     // Load quiz info
     const quizRef = ref(database, `quizzes/${quizId}`)
