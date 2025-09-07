@@ -11,6 +11,8 @@ interface Question {
   correct: number
 }
 
+export const dynamic = 'force-dynamic'
+
 export default function CreateQuizPage() {
   const router = useRouter()
   const [quizTitle, setQuizTitle] = useState('')

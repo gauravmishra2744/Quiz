@@ -12,6 +12,8 @@ interface Quiz {
   createdAt: number
 }
 
+export const dynamic = 'force-dynamic'
+
 export default function TeacherPage() {
   const [passcode, setPasscode] = useState('')
   const [isAuthenticated, setIsAuthenticated] = useState(false)
