@@ -49,7 +49,7 @@ export default function TeacherPage() {
   }
 
   const createQuiz = async () => {
-    if (!newQuizTitle.trim()) return
+    if (!newQuizTitle.trim() || !database) return
     
     setLoading(true)
     const quizzesRef = ref(database, 'quizzes')
