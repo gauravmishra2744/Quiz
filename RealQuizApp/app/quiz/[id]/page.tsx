@@ -37,7 +37,7 @@ export default function QuizPage() {
   const quizUrl = typeof window !== 'undefined' ? window.location.href : ''
 
   useEffect(() => {
-    if (!quizId) return
+    if (!quizId || !database) return
     
     const quizRef = ref(database, `quizzes/${quizId}`)
     onValue(quizRef, (snapshot) => {
@@ -79,6 +79,8 @@ export default function QuizPage() {
   }
 
   const finishQuiz = async (finalAnswers: number[]) => {
+    if (!database) return
+    
     const correctAnswers = finalAnswers.filter((answer, index) => 
       answer === quiz!.questions[index].correct
     ).length

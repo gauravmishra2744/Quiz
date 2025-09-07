@@ -31,6 +31,8 @@ export default function TeacherPage() {
   }
 
   const loadQuizzes = () => {
+    if (!database) return
+    
     const quizzesRef = ref(database, 'quizzes')
     onValue(quizzesRef, (snapshot) => {
       const data = snapshot.val()

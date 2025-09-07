@@ -34,7 +34,7 @@ export default function QuizControlPage() {
     : `http://localhost:3000/quiz/${quizId}`
 
   useEffect(() => {
-    if (!quizId) return
+    if (!quizId || !database) return
 
     // Load quiz
     const quizRef = ref(database, `quizzes/${quizId}`)
@@ -68,12 +68,14 @@ export default function QuizControlPage() {
   }, [quizId])
 
   const startQuiz = async () => {
+    if (!database) return
     await update(ref(database, `quizzes/${quizId}`), { status: 'active' })
     setQuizStatus('active')
     setShowQR(false)
   }
 
   const endQuiz = async () => {
+    if (!database) return
     await update(ref(database, `quizzes/${quizId}`), { status: 'ended' })
     setQuizStatus('ended')
   }

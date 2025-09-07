@@ -56,6 +56,11 @@ export default function CreateQuizPage() {
   }
 
   const createQuiz = async () => {
+    if (!database) {
+      alert('Database not initialized')
+      return
+    }
+    
     if (!quizTitle.trim()) {
       alert('Please enter quiz title')
       return
