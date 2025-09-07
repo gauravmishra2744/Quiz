@@ -1,8 +1,8 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'Real Quiz App - Classroom Quiz System',
-  description: 'Interactive quiz platform for classrooms',
+  title: 'Real Quiz App - Interactive Learning Platform by Team Astras',
+  description: 'Transform your classroom with our interactive quiz system featuring real-time results, live leaderboards, and seamless QR code access. Created by Team Astras.',
 }
 
 export default function RootLayout({
